@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Pendaftar OSIS</title>
+    <title>Data Seleksi Pengurus OSIS 2026–2027</title>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <style>
         body { 
@@ -16,6 +17,8 @@
             padding: 15px; 
             border-radius: 8px; 
             box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            max-width: 800px;
+            margin: 0 auto;
         }
         h2 { 
             color: #1e293b; 
@@ -23,8 +26,40 @@
             margin-bottom: 15px; 
             font-size: 20px;
         }
+
+        /* Kartu Pimpinan OSIS */
+        .top-leaders {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .leader-card {
+            background-color: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+        }
+        .leader-role {
+            font-size: 11px;
+            font-weight: bold;
+            color: #2563eb;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .leader-name {
+            font-size: 15px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+        .leader-gender {
+            font-size: 12px;
+            color: #64748b;
+            margin-top: 2px;
+        }
         
-        /* Area Pencarian Nama */
         .dataTables_filter { 
             float: none !important; 
             text-align: center !important; 
@@ -33,7 +68,7 @@
         .dataTables_filter label {
             font-weight: bold;
             color: #333;
-            font-size: 16px;
+            font-size: 15px;
         }
         .dataTables_filter input { 
             padding: 8px 12px; 
@@ -48,7 +83,6 @@
             margin-right: auto;
         }
 
-        /* Pembungkus Tabel */
         .table-responsive {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
@@ -64,7 +98,7 @@
             padding: 10px !important;
             text-align: left;
             white-space: nowrap;
-            cursor: default !important; /* Menghilangkan tanda panah/klik pengurutan */
+            cursor: default !important;
         }
         td { 
             padding: 10px !important;
@@ -73,113 +107,138 @@
             word-wrap: break-word;
             line-height: 1.4;
         }
-        .col-teks {
-            min-width: 200px;
-            max-width: 300px;
-        }
-        .col-no {
-            text-align: center;
-            font-weight: bold;
-        }
         tr:nth-child(even) {
             background-color: #f8fafc;
+        }
+        
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        .badge-success {
+            background-color: #22c55e;
+            color: white;
+        }
+        .badge-danger {
+            background-color: #ef4444;
+            color: white;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Data Pendaftaran Anggota OSIS</h2>
+        <h2>Data Seleksi Pengurus OSIS 2026–2027</h2>
+
+        <!-- Kartu Khusus Ketua & Wakil OSIS -->
+        <div class="top-leaders">
+            <div class="leader-card">
+                <div class="leader-role">Ketua OSIS</div>
+                <div class="leader-name">Sabrina Maulidya</div>
+                <div class="leader-gender">Perempuan</div>
+            </div>
+            <div class="leader-card">
+                <div class="leader-role">Wakil Ketua 1</div>
+                <div class="leader-name">Rafli Anugerah</div>
+                <div class="leader-gender">Laki-laki</div>
+            </div>
+            <div class="leader-card">
+                <div class="leader-role">Wakil Ketua 2</div>
+                <div class="leader-name">Deby Apriani</div>
+                <div class="leader-gender">Perempuan</div>
+            </div>
+        </div>
         
         <div class="table-responsive">
             <table id="tabelOSIS" class="display cell-border">
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Timestamp</th>
                         <th>Nama Lengkap</th>
                         <th>Kelas</th>
-                        <th>Jurusan</th>
                         <th>Jenis Kelamin</th>
-                        <th>No. WhatsApp</th>
-                        <th>Motivasi Masuk OSIS</th>
-                        <th>Minat Bakat, Skill</th>
-                        <th>Apa Kekurangan Kamu</th>
-                        <th>Apa Kelebihan Kamu</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>02/09/2026 9:13:40</td><td>M Alif Al Nur Rezky </td><td>XI</td><td>MPLB</td><td>Laki-laki</td><td>083162697105</td><td class="col-teks">menyenangkan</td><td class="col-teks">Gaada</td><td class="col-teks">Gaada</td><td class="col-teks">Gaada</td></tr>
-                    <tr><td>2</td><td>02/09/2026 9:20:48</td><td>Siti alfyani nur kayla </td><td>X</td><td>AKL</td><td>Prempuan</td><td>083114482313</td><td class="col-teks">aku pengen ikut berkontribusi dalam kegiatan sekolah dan menambah pengalaman berorganisasi dan juga pengen punya wawasan yang lebih banyak lagi, aku pengen lebih banyak belajar tentang yang belum pernah aku coba sebelumnya</td><td class="col-teks">aku minat di bidang seni karna mungkin aku suka coba bikin hal hal kreatif, aku juga punya bakat ngedit</td><td class="col-teks">kekurangan aku kurang percaya diri dalam melakukan sesuatu aku pengen kalau aku bisa masuk osis bisa lebih percaya diri lagi dan berani dalam mengatasi segala hal</td><td class="col-teks">bisa bertanggung jawab dan bisa berkerja sama bersama orang lain</td></tr>
-                    <tr><td>3</td><td>02/09/2026 9:22:47</td><td>Reishad Arsya Mazel</td><td>X</td><td>AKL</td><td>Laki-laki</td><td>088294038566</td><td class="col-teks">Mungkin memajukan sekolah atau mungkin membantu pihak sekolah terlalu umum. Aku masuk osis karena ingin melihat sudut pandang yang berbeda, karena aku yakin, setiap jabatan yang berbeda memiliki visi yang berbeda. Dan tentunya dengan masuk osis, tujuanku atau mimpiku lebih mudah digapai.</td><td class="col-teks">Minatku adalah melihat sesuatu dari setiap sudut, dan mendapat pengalaman. Skillku mungkin kemampuan pengamatan yang cukup tajam.</td><td class="col-teks">Saya pemalas yang rajin jika ada motivasi.</td><td class="col-teks">Jarang berbicara. Cukup tekun jika sudah memiliki tujuan</td></tr>
-                    <tr><td>4</td><td>02/09/2026 9:55:29</td><td>Yunna Salsabila</td><td>X</td><td>AKL</td><td>Prempuan</td><td>0858-1750-0035</td><td class="col-teks">ingin bisa tampil percaya diri, belajar beradaptasi</td><td class="col-teks">nyanyi (bisa tapi malu)</td><td class="col-teks">kurang bisa public speaking, tapi saya sedang belajar agar bisa public speaking</td><td class="col-teks">bisa bertanggung jawab, dan bisa bekerja sama</td></tr>
-                    <tr><td>5</td><td>02/09/2026 9:56:10</td><td>DEVIRA SEPTIANI </td><td>X</td><td>AKL</td><td>Prempuan</td><td>085591127243</td><td class="col-teks">belajar menjadi pimpinan dan ingin memperlancar pablik spiking</td><td class="col-teks">pernah menjadi hafizah Qur'an 5 juz</td><td class="col-teks">kurang menguasai pablik spiking</td><td class="col-teks">pernah menjadi masuk organisasi pondok pesantren modern dan terpilih menjadi ketua keamanan pondok</td></tr>
-                    <tr><td>6</td><td>02/09/2026 9:59:09</td><td>adelia suci ramadani </td><td>X</td><td>AKL</td><td>Prempuan</td><td>083189350378</td><td class="col-teks">saya ingin bergabung dengan osis untuk belajar, berkembang, berkontribusi bagi sekolah, menjadi pribadi yang aktif, bertanggung jawab, dan bermanfaat</td><td class="col-teks">tidak punya</td><td class="col-teks">belum teralu lancar public speaking, dan tidak percaya diri</td><td class="col-teks">kedisiplinan, dan taat aturan</td></tr>
-                    <tr><td>7</td><td>02/09/2026 10:00:11</td><td>Muhammad dafi kaelani</td><td>X</td><td>PM</td><td>Laki-laki</td><td>081511290238</td><td class="col-teks">pengen merubah diri menjadi pribadi yang lebih baik</td><td class="col-teks">saya lumayan berbakat di bidang akademik</td><td class="col-teks">kurang nya saya tidak disiplin</td><td class="col-teks">saya tidak pantang menyerah</td></tr>
-                    <tr><td>8</td><td>02/09/2026 10:06:09</td><td>m.pardiansyah</td><td>X</td><td>PM</td><td>Laki-laki</td><td>085711660177</td><td class="col-teks">melatih jiwa kepemimpinan, memperluas pertemanan, dan memberikan kontribusi nyata bagi kemajuan sekolah</td><td class="col-teks">ahli dalam menyegarkan beberapa acara</td><td class="col-teks">sering bercandaa</td><td class="col-teks">pintar dalam menyelenggarakan acara</td></tr>
-                    <tr><td>9</td><td>02/09/2026 10:09:55</td><td>Arina Sabila Hidayah</td><td>X</td><td>PM</td><td>Prempuan</td><td>085717453551</td><td class="col-teks">keinginan untuk mengembangkan diri dan berkontribusi nyata bagi sekolah</td><td class="col-teks">bakat saya memasak</td><td class="col-teks">kekurangan saya sulit berkata tidak</td><td class="col-teks">percaya diri</td></tr>
-                    <tr><td>10</td><td>02/09/2026 10:10:41</td><td>Siti Nur Fauziah</td><td>X</td><td>PM</td><td>Prempuan</td><td>0857-1031-9778</td><td class="col-teks">keinginan untuk belajar berorganisasi, melatih kepemimpinan,dan memberi kontribusi nyata bagi sekola</td><td class="col-teks">bakar saya memasak</td><td class="col-teks">gabisa menggambar</td><td class="col-teks">percaya diri</td></tr>
-                    <tr><td>11</td><td>02/09/2026 10:10:48</td><td>Siti tarwiyah </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>089602802098</td><td class="col-teks">ingin melatih percaya diri saya dengan cara mingin melatih rasa percaya diri saya, ingin lebih berani dalam berbicara di depan umum dan ingin mencari pengalaman di oisi dan juga ingin lebih kompak bersama dengan anggota anggota lain.</td><td class="col-teks">minat aku yaitu padus</td><td class="col-teks">kekurangan saya yaitu nervous ketika berbicara di depan umum.</td><td class="col-teks">kelebihan saya yaitu saya bisa bertanggung jawab, disiplin, cepat beradaptasi dengan orang' baru.</td></tr>
-                    <tr><td>12</td><td>02/09/2026 10:26:22</td><td>Nur cahya</td><td>X</td><td>AKL</td><td>Prempuan</td><td>085776288858</td><td class="col-teks">Saya ingin masuk OSIS karena saya ingin menambah pengalaman, belajar bertanggung jawab, dan melatih kemampuan bekerja sama dengan orang lain.</td><td class="col-teks">aku mempunyai keterampilan yang baik,dan dapat di percaya</td><td class="col-teks">tidak ada, tetapi setiap bakat dan skil aku yang aku bisa di situ ga selalu sempurna</td><td class="col-teks">mampu menjalankan tugas sesuai arahan,dan meski tanpa arahan,aku akan peka menjalankan tugas</td></tr>
-                    <tr><td>13</td><td>02/09/2026 10:30:41</td><td>Shafa wirdatul azka </td><td>X</td><td>AKL</td><td>Prempuan</td><td>087726443935</td><td class="col-teks">Motivasi saya masuk osis untuk mengembangkan kemampuan diri saya , Terutama dalam kepemimpinan, komunikasi dan Tanggung jawaban</td><td class="col-teks">bermain alat musik</td><td class="col-teks">terlalu ambis , sering merasa kurang dengan pencapaian sendiri</td><td class="col-teks">Aktif dan bertanggung jawab jika diberi tugas atau kepercayaan</td></tr>
-                    <tr><td>14</td><td>02/09/2026 10:33:23</td><td>siti Nabila maharani </td><td>XI</td><td>PM</td><td>Prempuan</td><td>857-1772-0433</td><td class="col-teks">karenaa ingin melanjutkan priode selanjutnya dan ini semakin berkembang</td><td class="col-teks">dapat mengatur kamera, dan punya skil memakai kamera</td><td class="col-teks">kurang bisa membuat rab</td><td class="col-teks">kelebihan aku , bisa membagi waktu, bisa memindah kan foto ke drive</td></tr>
-                    <tr><td>15</td><td>02/09/2026 10:53:33</td><td>FIONNA NURAINI</td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>085692800758</td><td class="col-teks">melanjutkan periode sebelumnya</td><td class="col-teks">bernyanyi (itupun ga bagus)</td><td class="col-teks">Pelupa, mudah terbawa suasana, sulit menentukan keputusan/solusi.</td><td class="col-teks">Mudah berbaur dengan lingkungan baru</td></tr>
-                    <tr><td>16</td><td>02/09/2026 10:56:57</td><td>Keenar Nayla Zaafarani </td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>089618294721</td><td class="col-teks">ingin melanjutkan yang sebelumnya, juga ingin menambah pengalaman dan relasi yg banyak.</td><td class="col-teks">baking, sering kali aku bikin brownies, cookies, dan makanan manis lainnya.</td><td class="col-teks">masih belum bisa bagi waktu</td><td class="col-teks">bisa menyalurkan ide, berdiskusi dengan kepala dingin, dan tidak mudah emosi.</td></tr>
-                    <tr><td>17</td><td>02/09/2026 11:28:20</td><td>MARDAN GALIH ARYADI</td><td>X</td><td>PM</td><td>Laki-laki</td><td>0857-7817-5364</td><td class="col-teks">karena saya ingin mencari pengalaman untuk melatih diri untuk menjadi pemimpin yang bertanggung jawab</td><td class="col-teks">publik speaking</td><td class="col-teks">kurang berani tampil</td><td class="col-teks">tidak panik saat menghadapi masalah</td></tr>
-                    <tr><td>18</td><td>02/09/2026 11:33:58</td><td>Zahfa riyahya</td><td>X</td><td>PM</td><td>Laki-laki</td><td>0831 77383181</td><td class="col-teks">Karna saya ingin mencari pengalaman</td><td class="col-teks">Bisa cepat akrab dengan orang baru</td><td class="col-teks">Malu malu</td><td class="col-teks">Cepat akrab dengan orang lain</td></tr>
-                    <tr><td>19</td><td>02/09/2026 12:16:40</td><td>Alya Nurfitriyani </td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>083151629995</td><td class="col-teks">motivasi saya untuk melanjutkan di OSIS adalah karena saya ingin terus menambah pengalaman dan mengembangkan kemampuan</td><td class="col-teks">saya memiliki minat dalam bidang organisasi, dan saya juga mudah berbaur</td><td class="col-teks">kekurangan saya adalah, terkadang mudah lupa dan gampang terdistraksi</td><td class="col-teks">kelebihan saya adalah, mudah berbaur dan beradaptasi dengan lingkungan</td></tr>
-                    <tr><td>20</td><td>02/09/2026 12:45:04</td><td>Silfi Alzafira</td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>089502718560</td><td class="col-teks">menlanjutkan periode sebelumnya</td><td class="col-teks">nyanyi dan mendengarkan musik</td><td class="col-teks">saya masi kurang dalam publik speaking dan saya masi proses belajar publik speaking</td><td class="col-teks">saya mudah beradaptasi sama orang sekitar saya</td></tr>
-                    <tr><td>21</td><td>02/09/2026 12:46:17</td><td>Zahira Adepira</td><td>X</td><td>AKL</td><td>Prempuan</td><td>085219980039</td><td class="col-teks">saya ingin mengembangkan potensi yang saya miliki di sekolah dasa semesta</td><td class="col-teks">public speaking, saya tidak malu saat berbicara di depan orang banyak</td><td class="col-teks">saya belum cukup pandai dalam menggunakan komputer/laptop</td><td class="col-teks">saya bisa berbicara di depan orang banyak dan saya cukup di percaya guru</td></tr>
-                    <tr><td>22</td><td>02/09/2026 13:13:41</td><td>rizqiana Isnaini Nafisah </td><td>X</td><td>PM</td><td>Prempuan</td><td>083870578079</td><td class="col-teks">agar bisa berbicara di depan banyak orang</td><td class="col-teks">bisa publik speaking</td><td class="col-teks">tidak bisa berbicara di hadapan banyak orang</td><td class="col-teks">memiliki keberanian</td></tr>
-                    <tr><td>23</td><td>02/09/2026 13:19:30</td><td>Andita Dhia Zahirah </td><td>XI</td><td>AKL</td><td>Prempuan</td><td>0831-3548-1272</td><td class="col-teks">meningkatkan kepribadian yang lebih percaya diri terutama dalam public speaking</td><td class="col-teks">mendokumentasikan foto video</td><td class="col-teks">kurang pengalaman di bidang organisasi, gugup bicara depan umum</td><td class="col-teks">jujur, berkomentar dengan baik, punya semangat tinggi</td></tr>
-                    <tr><td>24</td><td>02/09/2026 13:31:12</td><td>Reni khumaira </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>08561925381</td><td class="col-teks">ingin nambah pengalaman, belajar lebih bertanggung jawab, dan ikut aktif dalam kegiatan sekolah.</td><td class="col-teks">kerja sama tim dan suka mencoba hal-hal baru</td><td class="col-teks">kurang percaya diri saat berbicara di depan banyak orang</td><td class="col-teks">saya rajin, bertanggung jawab, mau belajar hal baru</td></tr>
-                    <tr><td>25</td><td>02/09/2026 13:34:18</td><td>Lita Anggraeni </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>085882393454</td><td class="col-teks">osis bukan hanya sekedar jabatan tetapi pembelajaran besar untuk diri saya</td><td class="col-teks">mampu berkerja sama dengan orang lain, gemar membaca, gemar bernyanyi</td><td class="col-teks">terkadang sangat bingung sekali dalam mengatur waktu kegiatan</td><td class="col-teks">mampu dalam berkerja sama, disiplin waktu serta bertanggung jawab.</td></tr>
-                    <tr><td>26</td><td>02/09/2026 13:42:39</td><td>qiarra putri nabiba </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>+62 895 1737 4457</td><td class="col-teks">Saya ingin bergabung dengan OSIS karena saya ingin menambah pengalaman, melatih rasa percaya diri</td><td class="col-teks">minat saya mendesain dan kreativitas, bakat Saya bisa menggambar</td><td class="col-teks">kekurangan saya selalu takut salah dalam berbicara dengan orang lain</td><td class="col-teks">Kelebihan saya Kreatif, mau belajar hal baru</td></tr>
-                    <tr><td>27</td><td>02/09/2026 13:54:09</td><td>Lutfia</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>085716824494</td><td class="col-teks">saya melihat hampir semua anggota organisasi punya jiwa kepemimpinan yang hebat</td><td class="col-teks">minat di bidang public speaking dan editing, dan memiliki kemampuan cepat memahami sesuatu</td><td class="col-teks">cenderung terlalu fokus di satu hal, jadi membuat saya rada lama dalam menyelesaikan tugas</td><td class="col-teks">cukup bertanggung jawab kalo udah dikasih tugas, gampang menyesuaikan diri</td></tr>
-                    <tr><td>28</td><td>02/09/2026 14:04:15</td><td>TIARA ALIA PUTRI</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>0858-1011-5033</td><td class="col-teks">karena saya ingin menambah pengalaman, belajar bertanggung jawab</td><td class="col-teks">minat dalam berorganisasi, cukup suka bekerja sama</td><td class="col-teks">kurang percaya diri dan gugup ketika berbicara di depan banyak orang</td><td class="col-teks">mudah beradaptasi, bisa bekerja sama dengan orang lain</td></tr>
-                    <tr><td>29</td><td>02/09/2026 14:08:18</td><td>Siti Rahma Lia</td><td>X</td><td>AKL</td><td>Prempuan</td><td>0895622307220</td><td class="col-teks">menantang diri keluar dari zona nyaman dan mengasah keterampilan kepemimpinan</td><td class="col-teks">kemampuan berorganisasi dan kepemimpinan</td><td class="col-teks">terkadang terlalu memikirkan hasil dari pekerjaan yang saya lakukan</td><td class="col-teks">bertanggung jawab,mau belajar,mudah bekerja sama</td></tr>
-                    <tr><td>30</td><td>02/09/2026 14:16:05</td><td>NUR ARIYANTI PERTIWI </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>083863776332</td><td class="col-teks">punya rasa tanggung jawab buat lingkungan sekolah</td><td class="col-teks">minat dalam bidang organisasi dan kegiatan sekolah, kerjasama tim</td><td class="col-teks">masih kurang dan perlu untuk meningkatkan kemampuan time management</td><td class="col-teks">kerjasama tim, berbagi ide, dan sangat mau untuk mendapatkan ilmu baru</td></tr>
-                    <tr><td>31</td><td>02/09/2026 14:25:06</td><td>Rendi Supriatna </td><td>X</td><td>MPLB</td><td>Laki-laki</td><td>0855-9161-1983</td><td class="col-teks">menambah pengalaman, melatih kemampuan bekerja sama, meningkatkan rasa tanggung jawab</td><td class="col-teks">bermain Hadroh</td><td class="col-teks">kurang cepat dalam menulis</td><td class="col-teks">ramah, sopan, santun, mudah beradaptasi</td></tr>
-                    <tr><td>32</td><td>02/09/2026 14:25:34</td><td>MUHAMAD ARIEL SAPUTRA</td><td>XI</td><td>PM</td><td>Laki-laki</td><td>089677557680</td><td class="col-teks">Membantu membangun OSIS menjadi ruang aspirasi</td><td class="col-teks">English (Speaking, Reading, Listening, Writing), Design, Public Speaking</td><td class="col-teks">terlalu berlebihan dalam beberapa hal</td><td class="col-teks">Aku mampu bersikap</td></tr>
-                    <tr><td>33</td><td>02/09/2026 14:25:36</td><td>Shindi Auliyya Az zahra</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>+62 895-6018-20405</td><td class="col-teks">ingin belajar bagaimana menyatukan berbagai kepala, mendengarkan aspirasi teman-teman</td><td class="col-teks">Public speaking dan berpikir kreatif, mudah berbaur</td><td class="col-teks">kurang teliti di bagian detail kecil</td><td class="col-teks">kemampuan beradaptasi dan kreativitas</td></tr>
-                    <tr><td>34</td><td>02/09/2026 14:26:51</td><td>Syahla.Qurratuaina</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>083106339448</td><td class="col-teks">Ingin membuktikan diri agar lebih berani dan percaya diri</td><td class="col-teks">mengembangkan public speaking dan kepercayaan diri</td><td class="col-teks">terkadang membutuhkan waktu untuk menyimpulkan sebuah ide</td><td class="col-teks">dapat melaksanakan dan mengikuti aturan yang ada</td></tr>
-                    <tr><td>35</td><td>02/09/2026 14:33:41</td><td>Neyla fhauziyah </td><td>X</td><td>PM</td><td>Prempuan</td><td>0895600307890</td><td class="col-teks">ingin membuat sekolah jadi lebih seru dan aktif</td><td class="col-teks">mengembangkan kreativitas, ngedit video, Canva, dance</td><td class="col-teks">terkadang masih gugup saat berbicara di depan umum</td><td class="col-teks">disiplin, bertanggung jawab dan mudah bekerja sama</td></tr>
-                    <tr><td>36</td><td>02/09/2026 14:51:37</td><td>Auliya Kiramatul Khamsah </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>085158029010</td><td class="col-teks">ikut berperan aktif dalam menjalankan proses dan hasil dari semua acara</td><td class="col-teks">menulis naskah, baking, cooking, leadership, problem solving</td><td class="col-teks">1. Cepet nangisan 2. Overthinking 3. Kurang percaya diri</td><td class="col-teks">1. Menjaga image 2. Bisa mendengar dan mengerti 3. Bersabar</td></tr>
-                    <tr><td>37</td><td>02/09/2026 15:12:48</td><td>Muhamad Fikri</td><td>X</td><td>MPLB</td><td>Laki-laki</td><td>083162700129</td><td class="col-teks">saya pernah menjadi salah satu anggota OSIS pas smp</td><td class="col-teks">pandai berbicara di depan orang lain</td><td class="col-teks">suka gugup ketika bertemu sama yang blm kenal</td><td class="col-teks">percaya diri dengan kerja keras saya sendiri</td></tr>
-                    <tr><td>38</td><td>02/09/2026 16:47:49</td><td>Rumaisha </td><td>X</td><td>AKL</td><td>Prempuan</td><td>081290601833</td><td class="col-teks">Untuk mendapatkan pengalaman dari berorganisasi yang baik.</td><td class="col-teks">membaca, menulis, mudah beradaptasi dan bersosialisasi</td><td class="col-teks">Suka tidak percaya diri dengan lingkungan</td><td class="col-teks">Mampu bekerjasama dengan tim</td></tr>
-                    <tr><td>39</td><td>02/09/2026 17:05:13</td><td>Aulia regina putri</td><td>XI</td><td>AKL</td><td>Prempuan</td><td>+62 857-7545-2942</td><td class="col-teks">Ingin berkembang melalui organisasi osis, dan menambah pengalaman</td><td class="col-teks">Mudah berbaur dengan banyak orang</td><td class="col-teks">Kadang aga lemot, dan kadang sering terlambat</td><td class="col-teks">mudah berbaur, bisa menyampaikan ide ide</td></tr>
-                    <tr><td>40</td><td>02/09/2026 17:17:40</td><td>Afifah Khalisah </td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>+62 823-1546-1657</td><td class="col-teks">lanjutin periode sebelumnya, dan ingin mengembangkan kemampuan</td><td class="col-teks">Suka bernyanyi</td><td class="col-teks">gampang lupa dan masih sulit mengambil keputusan</td><td class="col-teks">Gampang berbaur dengan lingkungan baru</td></tr>
-                    <tr><td>41</td><td>02/09/2026 17:22:05</td><td>Hilmia Zuhaida Rahman </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>085729489391</td><td class="col-teks">belajar berorganisasi, punya pengalaman, melatih kepemimpinan</td><td class="col-teks">bernyanyi, menggambar, Canva/CapCut editing</td><td class="col-teks">kurang dalam public speaking, kurang percaya diri</td><td class="col-teks">mudah beradaptasi, bisa bekerja sama dalam tim, kreatif</td></tr>
-                    <tr><td>42</td><td>02/09/2026 17:56:17</td><td>Alia Putri</td><td>XI</td><td>MPLB</td><td>Prempuan</td><td>0895335125440</td><td class="col-teks">ingin menambah pengalaman, keterampilan serta pengetahuan</td><td class="col-teks">memasak, kreativitas dalam mengolah makanan</td><td class="col-teks">kadang pelupa, kurang berani dalam mengambil keputusan</td><td class="col-teks">mudah berbaur, bisa bekerja sama, me-manage waktu</td></tr>
-                    <tr><td>43</td><td>02/09/2026 18:08:25</td><td>Nayshilla sabria zalfa</td><td>X</td><td>PM</td><td>Prempuan</td><td>0858-8083-4342</td><td class="col-teks">Ingin mengatasi rasa grogi dan terbiasa berbicara</td><td class="col-teks">Di bidang olahraga</td><td class="col-teks">Sering lupa dan tidak terlalu pintar</td><td class="col-teks">Aktif dan gampang ngerti saat praktik</td></tr>
-                    <tr><td>44</td><td>02/09/2026 18:42:40</td><td>Siti nurmalasari</td><td>X</td><td>PM</td><td>Prempuan</td><td>085890173654</td><td class="col-teks">Mengembangkan diri,dan melatih mental yang kuat.</td><td class="col-teks">komunikasi yang baik, bekerja sama, mengatur waktu</td><td class="col-teks">kurang percaya diri ketika berbicara di depan banyak orang</td><td class="col-teks">mudah bekerja sama, bertanggung jawab dan disiplin</td></tr>
-                    <tr><td>45</td><td>02/09/2026 18:48:58</td><td>Siti Hapsoh </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>0856-9766-9750</td><td class="col-teks">melatih diri dalam berbagai aspek seperti kepemimpinan dan komunikasi</td><td class="col-teks">bidang komunikasi dan public speaking</td><td class="col-teks">mudah memikirkan sesuatu secara mendalam (overthinking)</td><td class="col-teks">percaya diri, terbiasa mengekspresikan diri</td></tr>
-                    <tr><td>46</td><td>02/09/2026 18:54:04</td><td>Risma maulida </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>083804689513</td><td class="col-teks">Ingin mengembangkan skill komunikasi dan leadership</td><td class="col-teks">Sosial & kemanusiaan, problem solving, kerja sama tim</td><td class="col-teks">kurang mampu berbicara di depan umum</td><td class="col-teks">Mampu berkomunikasi dengan baik, problem solving, leadership</td></tr>
-                    <tr><td>47</td><td>02/09/2026 18:58:13</td><td>Syifa nur hikmah </td><td>X</td><td>AKL</td><td>Prempuan</td><td>0895420633210</td><td class="col-teks">mau lebih aktif, cari pengalaman, dan menambah pertemanan</td><td class="col-teks">aktif</td><td class="col-teks">ga bisa ngomong lancar kalo diliatin banyak orang</td><td class="col-teks">belum ditulis</td></tr>
-                    <tr><td>48</td><td>02/09/2026 19:01:51</td><td>Muhammad Akhdan Al Qorni </td><td>X</td><td>MPLB</td><td>Laki-laki</td><td>88976160379</td><td class="col-teks">melatih jiwa kepemimpinan dalam OSIS, disiplin, dan bertanggung jawab</td><td class="col-teks">belum ditemukan</td><td class="col-teks">kurang dalam menulis cepat dan bagus</td><td class="col-teks">cekatan dan bisa mengingat banyak hal</td></tr>
-                    <tr><td>49</td><td>02/09/2026 19:03:10</td><td>Sheila raisa futri </td><td>X</td><td>AKL</td><td>Prempuan</td><td>+62 856-1158-278</td><td class="col-teks">mengasah keterampilan, meningkatkan rasa percaya diri, belajar bersosialisasi</td><td class="col-teks">olahraga (badminton), berkomunikasi, bersosialisasi</td><td class="col-teks">belum punya pengalaman dalam organisasi</td><td class="col-teks">mudah bersosialisasi dan berkomunikasi</td></tr>
-                    <tr><td>50</td><td>02/09/2026 19:06:16</td><td>RAYA SALSABILA</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>08888792353</td><td class="col-teks">menambah wawasan dan ingin menambah pengalaman</td><td class="col-teks">melukis</td><td class="col-teks">kurang berani dan malu untuk berbicara di depan banyak orang</td><td class="col-teks">bisa membantu teman tanpa mengharapkan balasan</td></tr>
-                    <tr><td>51</td><td>02/09/2026 19:06:18</td><td>Dewi hilmayah</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>089602650006</td><td class="col-teks">ingin punya pengalaman baru, belajar berorganisasi</td><td class="col-teks">kreativitas, kerja sama, dan berkomunikasi</td><td class="col-teks">masih suka malu dan kurang diri</td><td class="col-teks">bertanggung jawab, bisa diajak kerja sama, mau belajar</td></tr>
-                    <tr><td>52</td><td>02/09/2026 19:06:23</td><td>nurul Inayah </td><td>X</td><td>AKL</td><td>Prempuan</td><td>085770403299</td><td class="col-teks">belajar menjadi pribadi yang lebih bertanggung jawab, disiplin, dan percaya diri</td><td class="col-teks">berkomunikasi, ide kreatif, kerja sama tim</td><td class="col-teks">kurang percaya diri saat berbicara di depan banyak orang</td><td class="col-teks">bertanggung jawab, disiplin, mudah bekerja sama</td></tr>
-                    <tr><td>53</td><td>02/09/2026 19:07:41</td><td>Neng Zahra.Agustina</td><td>X</td><td>PM</td><td>Prempuan</td><td>08984944575</td><td class="col-teks">mau nambah pengalaman, kenal lebih banyak teman</td><td class="col-teks">suka bekerja sama, berkomunikasi, dan hal kreatif</td><td class="col-teks">masih perlu meningkatkan rasa percaya diri</td><td class="col-teks">cepat memahami hal baru, mudah beradaptasi, bertanggung jawab</td></tr>
-                    <tr><td>54</td><td>02/09/2026 19:11:15</td><td>siti aida </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>081210618169</td><td class="col-teks">mencoba hal baru, menambah pengalaman, dan melatih diri</td><td class="col-teks">komunikasi, disiplin, kerja sama, mengatur waktu</td><td class="col-teks">kadang masih gugup saat berbicara di depan banyak orang</td><td class="col-teks">disiplin, mudah bekerja sama dan mau belajar</td></tr>
-                    <tr><td>55</td><td>02/09/2026 19:21:26</td><td>salsa sabila</td><td>X</td><td>MPLB</td><td>Prempuan</td><td>083133326412</td><td class="col-teks">ingin mengembangkan diri agar lebih percaya diri</td><td class="col-teks">olahraga, menari</td><td class="col-teks">tidak percaya diri saat berbicara di depan umum</td><td class="col-teks">bisa menari</td></tr>
-                    <tr><td>56</td><td>02/09/2026 19:29:18</td><td>Muhamad Andika Pazri</td><td>X</td><td>AKL</td><td>Laki-laki</td><td>083831898562</td><td class="col-teks">menyibukan diri dengan hal positif, melatih kepemimpinan dan public speaking</td><td class="col-teks">bermain alat musik</td><td class="col-teks">kurang percaya diri ketika berbicara di depan banyak orang</td><td class="col-teks">bertanggung jawab dan memiliki keinginan kuat untuk belajar</td></tr>
-                    <tr><td>57</td><td>02/09/2026 19:31:35</td><td>Pebriansyah </td><td>X</td><td>PM</td><td>Laki-laki</td><td>08951853117</td><td class="col-teks">ingin berkontribusi dan berorganisasi</td><td class="col-teks">non akademik</td><td class="col-teks">susah diatur</td><td class="col-teks">cepat berkenalan dengan orang lain</td></tr>
-                    <tr><td>58</td><td>02/09/2026 19:47:18</td><td>AYMA SOPIAH ADAWIYAH </td><td>X</td><td>PM</td><td>Prempuan</td><td>081936252568</td><td class="col-teks">belajar berorganisasi dan mengembangkan diri</td><td class="col-teks">menari</td><td class="col-teks">masih gugup ngomong di depan orang banyak</td><td class="col-teks">mudah beradaptasi</td></tr>
-                    <tr><td>59</td><td>02/09/2026 19:48:36</td><td>Siti Raisya kaila </td><td>X</td><td>MPLB</td><td>Prempuan</td><td>089688018132</td><td class="col-teks">mau belajar jadi pribadi yang bertanggung jawab dan berani</td><td class="col-teks">membuat dan mengatur acara (rundown)</td><td class="col-teks">pemalu dan susah ngomong di depan umum</td><td class="col-teks">tanggung jawab, menyelesaikan tugas sampai tuntas</td></tr>
-                    <tr><td>60</td><td>02/09/2026 19:51:35</td><td>Reisya Janeeta Gumilar </td><td>XI</td><td>AKL</td><td>Prempuan</td><td>089618294365</td><td class="col-teks">belajar berorganisasi, melatih kepemimpinan, dan melanjutkan OSIS</td><td class="col-teks">bidang IT dan mendesain</td><td class="col-teks">kurang di public speaking</td><td class="col-teks">dapat beradaptasi dengan cepat</td></tr>
-                    <tr><td>61</td><td>02/09/2026 19:57:05</td><td>Cintya Syalsha Rahayu</td><td>XI</td><td>AKL</td><td>Prempuan</td><td>+6285718862023</td><td class="col-teks">kembali bergabung dengan osis karena ingin melanjutkan pengalaman</td><td class="col-teks">kreativitas dan organisasi, menyampaikan ide</td><td class="col-teks">kurang dalam mengatur waktu jika ada tugas bersamaan</td><td class="col-teks">bertanggung jawab, mau belajar, terbuka pada kritik</td></tr>
-                    <tr><td>62</td><td>02/09/2026 20:04:08</td><td>Siti Salwa </td><td>XI</td><td>AKL</td><td>Prempuan</td><td>083834697486</td><td class="col-teks">ingin mencari pengalaman dan lebih berbaur lagi</td><td class="col-teks">desain poster</td><td class="col-teks">public speaking</td><td class="col-teks">menjaga rahasia</td></tr>
+                    <tr><td>1</td><td>Muhamad Andika Pazri</td><td>X AKL 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>2</td><td>Aulia Regina Putri</td><td>XI AKL 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>3</td><td>Andita Dhia Zahirah</td><td>XI AKL 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>4</td><td>Reisya Janeeta Gumilar</td><td>XI AKL 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>5</td><td>Zahira Adepira</td><td>X AKL 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>6</td><td>Sheila Raisa Futri</td><td>X AKL 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>7</td><td>Siti Rahma Lia</td><td>X AKL 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>8</td><td>Nur Cahya</td><td>X AKL 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>9</td><td>Shafa Wirdatul Azka</td><td>X AKL 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>10</td><td>Syifa Nur Hikmah</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    
+                    <tr><td>11</td><td>Muhamad Fikri</td><td>X MPLB 2</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>12</td><td>Keenar Nayla Zaafarani</td><td>XI MPLB 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>13</td><td>Fionna Nuraini</td><td>XI MPLB 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>14</td><td>M Alif Al Nur Rezky</td><td>XI MPLB 2</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>15</td><td>Lita Anggraeni</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>16</td><td>Syahla Qurratuaina</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>17</td><td>Dewi Hilmayah</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>18</td><td>Reni Khumaira</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>19</td><td>Hilmia Zuhaida Rahman</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>20</td><td>Lutfia</td><td>X MPLB 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>21</td><td>Rendi Supriatna</td><td>X MPLB 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>22</td><td>Shindi Auliyya Az zahra</td><td>X MPLB 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>23</td><td>Nur Ariyanti Pertiwi</td><td>X MPLB 1</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>24</td><td>Muhammad Akhdan Al Qorni</td><td>X MPLB 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>25</td><td>Siti Tarwiyah</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>26</td><td>Siti Raisya Kaila</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+
+                    <tr><td>27</td><td>Muhamad Ariel Saputra</td><td>XI PM 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>28</td><td>Siti Nabila Maharani</td><td>XI PM 3</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>29</td><td>Muhammad Dafi Kaelani</td><td>X PM 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>30</td><td>Mardan Galih Aryadi</td><td>X PM 3</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>31</td><td>Arina Sabila Hidayah</td><td>X PM 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>32</td><td>Siti Nurmalasari</td><td>X PM</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>33</td><td>Rizqiana Isnaini Nafisah</td><td>X PM 3</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>34</td><td>Siti Nur Fauziah</td><td>X PM 3</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>35</td><td>M Pardiansyah</td><td>X PM 1</td><td>Laki-laki</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>36</td><td>Neng Zahra Agustina</td><td>X PM 2</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+
+                    <tr><td>37</td><td>Siti alfyani nur kayla</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-success">Lolos</span></td></tr>
+                    <tr><td>38</td><td>Reishad Arsya Mazel</td><td>X AKL</td><td>Laki-laki</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>39</td><td>Yunna Salsabila</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>40</td><td>DEVIRA SEPTIANI</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>41</td><td>adelia suci ramadani</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>42</td><td>Zahfa riyahya</td><td>X PM</td><td>Laki-laki</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>43</td><td>Alya Nurfitriyani</td><td>XI MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>44</td><td>Silfi Alzafira</td><td>XI MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>45</td><td>qiarra putri nabiba</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>46</td><td>TIARA ALIA PUTRI</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>47</td><td>Neyla fhauziyah</td><td>X PM</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>48</td><td>Auliya Kiramatul Khamsah</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>49</td><td>Rumaisha</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>50</td><td>Afifah Khalisah</td><td>XI MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>51</td><td>Alia Putri</td><td>XI MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>52</td><td>Nayshilla sabria zalfa</td><td>X PM</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>53</td><td>Siti Hapsoh</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>54</td><td>Risma maulida</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>55</td><td>RAYA SALSABILA</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>56</td><td>nurul Inayah</td><td>X AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>57</td><td>siti aida</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>58</td><td>salsa sabila</td><td>X MPLB</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>59</td><td>Pebriansyah</td><td>X PM</td><td>Laki-laki</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>60</td><td>AYMA SOPIAH ADAWIYAH</td><td>X PM</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>61</td><td>Cintya Syalsha Rahayu</td><td>XI AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
+                    <tr><td>62</td><td>Siti Salwa</td><td>XI AKL</td><td>Perempuan</td><td><span class="badge badge-danger">Tidak Lolos</span></td></tr>
                 </tbody>
             </table>
         </div>
     </div>
   
-       <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     
-            <script>
+    <script>
         $(document).ready(function() {
             var t = $('#tabelOSIS').DataTable({
                 "paging": false,
@@ -192,10 +251,10 @@
             });
 
             t.on('search.dt', function () {
-                t.column(0, {search:'applied'}).nodes().each(function (/** @type {any} */ cell, /** @type {any} */ i) {
-
-                    cell.innerHTML = i + 1;
-                });
+                var nodes = t.column(0, {search:'applied'}).nodes();
+                for (var i = 0; i < nodes.length; i++) {
+                    nodes[i].innerHTML = i + 1;
+                }
             }).draw();
         });
     </script>
